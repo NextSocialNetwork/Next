@@ -89,35 +89,35 @@ export const ArticleArchiveView: React.FC<ArticleArchiveViewProps> = ({
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       {/* Header Banner - Blog Friendly */}
-      <div className="relative rounded-2xl bg-gradient-to-br from-[#0c101a] via-[#0e1320] to-[#07090e] border border-slate-800 p-6 sm:p-8 overflow-hidden shadow-xl">
+      <div className="relative rounded-2xl bg-gradient-to-br from-[#0c101a] via-[#0e1320] to-[#07090e] border border-slate-800 p-3.5 sm:p-6 lg:p-8 overflow-hidden shadow-xl">
         <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
-        <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <div className="max-w-2xl space-y-2">
-            <div className="flex items-center gap-2 text-xs text-slate-400 font-mono">
+        <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6">
+          <div className="max-w-2xl space-y-1.5 sm:space-y-2">
+            <div className="flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-slate-400 font-mono">
               <span className="text-emerald-400 font-semibold">https://NextSocialNetwork.Com/blog</span>
               <span aria-hidden="true">·</span>
               <span>Googlebot & Open Web Index</span>
             </div>
-            <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight flex items-center gap-3">
-              <BookOpen className="w-7 h-7 text-emerald-400 shrink-0" />
+            <h1 className="text-lg sm:text-2xl lg:text-3xl font-bold text-white tracking-tight leading-tight flex items-center gap-2.5 sm:gap-3">
+              <BookOpen className="w-5 h-5 sm:w-7 sm:h-7 text-emerald-400 shrink-0" />
               <span>Next Blog: 7,485 SEO-Friendly Articles</span>
             </h1>
-            <p className="text-sm text-slate-300 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
               Explore 7,485 decentralized blog articles on cryptography, sovereign identity, Bitcoin macro economics, and autonomous finance. Formatted for effortless reading and instant Google search engine indexation.
             </p>
           </div>
 
-          <div className="flex flex-col sm:items-end gap-3 shrink-0">
+          <div className="flex sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-2.5 sm:gap-3 shrink-0 pt-1 sm:pt-0 border-t border-slate-800/60 sm:border-t-0">
             <button
               onClick={() => { setIsSitemapOpen(true); haptics.tap(); }}
-              className="px-4 py-2.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white rounded-xl text-xs font-semibold flex items-center gap-2 transition-all shadow-md shadow-emerald-950/20 whitespace-nowrap"
+              className="px-3 py-1.5 sm:px-4 sm:py-2.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white rounded-xl text-xs font-semibold flex items-center gap-1.5 sm:gap-2 transition-all shadow-md shadow-emerald-950/20 whitespace-nowrap"
             >
-              <Globe className="w-4 h-4 text-emerald-400" />
+              <Globe className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400" />
               <span>{t.sitemap_btn}</span>
             </button>
-            <div className="text-[11px] font-mono text-slate-400">
+            <div className="text-[10px] sm:text-[11px] font-mono text-slate-400">
               Total Blog Corpus: <span className="text-emerald-400 font-bold tabular-nums">7,485 Articles</span>
             </div>
           </div>
@@ -125,14 +125,14 @@ export const ArticleArchiveView: React.FC<ArticleArchiveViewProps> = ({
       </div>
 
       {/* Search and Category Filters */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-2.5 sm:gap-4">
         {/* Category tabs */}
-        <div className="flex items-center gap-1 p-1 bg-slate-900/90 border border-slate-800 rounded-xl overflow-x-auto text-xs">
+        <div className="flex items-center gap-1 p-1 bg-slate-900/90 border border-slate-800 rounded-xl overflow-x-auto text-xs no-scrollbar">
           {categories.map(cat => (
             <button
               key={cat}
               onClick={() => { setSelectedCategory(cat); setCurrentPage(1); haptics.tap(); }}
-              className={`px-3 py-1.5 rounded-lg font-medium transition-colors whitespace-nowrap shrink-0 ${
+              className={`px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg text-[11px] sm:text-xs font-medium transition-colors whitespace-nowrap shrink-0 ${
                 selectedCategory === cat ? 'bg-slate-800 text-white shadow-sm' : 'text-slate-400 hover:text-slate-200'
               }`}
             >
@@ -143,23 +143,23 @@ export const ArticleArchiveView: React.FC<ArticleArchiveViewProps> = ({
 
         {/* Search input */}
         <div className="relative w-full lg:w-72">
-          <Search className="w-4 h-4 absolute left-3 top-2.5 text-slate-500" />
+          <Search className="w-3.5 h-3.5 absolute left-3 top-2.5 text-slate-500" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => { setSearchQuery(e.target.value); setCurrentPage(1); }}
             placeholder={t.search_placeholder}
-            className="w-full pl-9 pr-3 py-1.5 bg-slate-900/90 border border-slate-800 rounded-xl text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-emerald-500"
+            className="w-full pl-8 sm:pl-9 pr-3 py-1 sm:py-1.5 bg-slate-900/90 border border-slate-800 rounded-xl text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-emerald-500"
           />
         </div>
       </div>
 
       {/* Grid of Blog Articles */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
         {articles.map(article => (
           <article
             key={article.id}
-            className="p-5 bg-[#0c1018] border border-slate-800/80 hover:border-emerald-500/50 rounded-2xl transition-all flex flex-col justify-between space-y-3 shadow-md group"
+            className="p-3.5 sm:p-5 bg-[#0c1018] border border-slate-800/80 hover:border-emerald-500/50 rounded-2xl transition-all flex flex-col justify-between space-y-2.5 sm:space-y-3 shadow-md group"
           >
             <div className="space-y-2">
               {/* Unboxed Metadata Strip (Zero-Pill Discipline) */}

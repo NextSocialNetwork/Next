@@ -67,18 +67,22 @@ export const AiChatSupportModal: React.FC<AiChatSupportModalProps> = ({
   if (!isOpen) return null;
 
   const quickQuestions = [
-    language === 'zh' ? '这 2,896 篇 SEO 文章是如何被 Google 索引的？' :
-    language === 'es' ? '¿Cómo se indexan los 2.896 artículos en Google SEO?' :
-    'How are all 2,896 articles indexed for Google SEO?',
+    language === 'lt' ? 'Kaip visi 7,485 SEO straipsniai indeksuojami Google paieškoje?' :
+    language === 'zh' ? '这 7,485 篇 SEO 博客文章是如何被 Google 索引的？' :
+    language === 'es' ? '¿Cómo se indexan los 7.485 artículos en Google SEO?' :
+    'How are all 7,485 articles indexed for Google SEO?',
 
+    language === 'lt' ? 'Kaip veikia tapatybė be KYC su 12 žodžių atkūrimo fraze?' :
     language === 'zh' ? '免KYC的自主助记词身份如何运作？' :
     language === 'es' ? '¿Cómo funciona la identidad sin KYC con 12 palabras?' :
     'How does zero-KYC sovereign seed identity work?',
 
+    language === 'lt' ? 'Paaiškinkite automatinio Bitcoin ir akcijų portfelio subalansavimo modelį' :
     language === 'zh' ? '实时比特币与股票投资组合再平衡算法原理' :
     language === 'es' ? '¿Cómo funciona el rebalanceo de portafolio algorítmico?' :
     'Explain the algorithmic trend portfolio rebalance model',
 
+    language === 'lt' ? 'Kaip AES-256-GCM šifravimas saugo asmeninius susirašinėjimus?' :
     language === 'zh' ? '端到端加密AES-256-GCM是如何保护私聊的？' :
     language === 'es' ? '¿Cómo protege el cifrado E2EE AES-256-GCM los mensajes?' :
     'How does AES-256-GCM E2EE protect direct messages?'
@@ -161,8 +165,8 @@ export const AiChatSupportModal: React.FC<AiChatSupportModalProps> = ({
   return (
     <div className={`fixed z-50 transition-all duration-300 ${
       isExpanded 
-        ? 'inset-4 sm:inset-10' 
-        : 'bottom-4 right-4 sm:bottom-6 sm:right-6 w-[94vw] sm:w-[440px] h-[580px]'
+        ? 'inset-3 sm:inset-10' 
+        : 'bottom-3 right-3 sm:bottom-6 sm:right-6 w-[calc(100vw-24px)] sm:w-[440px] max-h-[85vh] h-[520px]'
     } bg-[#0c1018] border border-slate-700/80 rounded-2xl shadow-2xl flex flex-col overflow-hidden backdrop-blur-xl animate-in zoom-in-95 duration-200`}>
       {/* Header */}
       <div className="px-4 py-3.5 bg-[#090d14] border-b border-slate-800 flex items-center justify-between">

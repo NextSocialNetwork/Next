@@ -109,9 +109,9 @@ export const TradingView: React.FC<TradingViewProps> = ({
   const candleWidth = chartWidth / (candles.length || 1);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       {/* Top Ticker Selector Bar */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-1">
+      <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1 no-scrollbar">
         {tickers.map(ticker => {
           const isSelected = ticker.symbol === selectedTicker.symbol;
           const isPos = ticker.change24h >= 0;
@@ -119,22 +119,22 @@ export const TradingView: React.FC<TradingViewProps> = ({
             <button
               key={ticker.symbol}
               onClick={() => { onSelectTicker(ticker); haptics.tap(); }}
-              className={`px-4 py-2.5 rounded-xl border text-left transition-all whitespace-nowrap shrink-0 flex items-center gap-3 ${
+              className={`px-2.5 py-1.5 sm:px-4 sm:py-2.5 rounded-xl border text-left transition-all whitespace-nowrap shrink-0 flex items-center gap-2 sm:gap-3 ${
                 isSelected
                   ? 'bg-slate-800 border-emerald-500/60 shadow-lg shadow-emerald-950/20'
                   : 'bg-[#0c1018] border-slate-800 hover:border-slate-700 hover:bg-slate-900/60'
               }`}
             >
               <div>
-                <div className="flex items-center gap-1.5">
-                  <span className="font-mono text-xs font-bold text-white">{ticker.symbol}</span>
-                  <span className="text-[10px] font-mono text-slate-500 uppercase">{ticker.category}</span>
+                <div className="flex items-center gap-1 sm:gap-1.5">
+                  <span className="font-mono text-[11px] sm:text-xs font-bold text-white">{ticker.symbol}</span>
+                  <span className="text-[9px] sm:text-[10px] font-mono text-slate-500 uppercase">{ticker.category}</span>
                 </div>
-                <div className="font-mono text-xs text-slate-300 font-semibold tabular-nums">
+                <div className="font-mono text-[11px] sm:text-xs text-slate-300 font-semibold tabular-nums">
                   ${ticker.price.toLocaleString('en-US', { minimumFractionDigits: 2 })}
                 </div>
               </div>
-              <div className={`text-xs font-mono font-medium flex items-center ${isPos ? 'text-emerald-400' : 'text-rose-400'}`}>
+              <div className={`text-[11px] sm:text-xs font-mono font-medium flex items-center ${isPos ? 'text-emerald-400' : 'text-rose-400'}`}>
                 {isPos ? '+' : ''}{ticker.change24h}%
               </div>
             </button>
@@ -143,38 +143,38 @@ export const TradingView: React.FC<TradingViewProps> = ({
       </div>
 
       {/* Main Grid: Live Chart + Order Book + Instant Execution Terminal */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
         {/* Left Column: Interactive Candlestick Chart & Technicals */}
         <div className="lg:col-span-8 space-y-4">
-          <div className="p-5 sm:p-6 bg-[#0c1018] border border-slate-800 rounded-2xl shadow-xl space-y-4">
+          <div className="p-3.5 sm:p-5 lg:p-6 bg-[#0c1018] border border-slate-800 rounded-2xl shadow-xl space-y-3 sm:space-y-4">
             {/* Chart Header */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
               <div>
-                <div className="flex items-center gap-2 text-xs text-slate-400">
+                <div className="flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-slate-400">
                   <span className="font-mono text-emerald-400 font-semibold">{selectedTicker.name}</span>
                   <span aria-hidden="true">·</span>
                   <span>24h Vol: {selectedTicker.volume24h}</span>
                   <span aria-hidden="true">·</span>
-                  <span>Volatility Index: <span className="font-mono text-amber-400">{selectedTicker.volatilityIndex}</span></span>
+                  <span>Vol: <span className="font-mono text-amber-400">{selectedTicker.volatilityIndex}</span></span>
                 </div>
-                <div className="flex items-baseline gap-3 mt-1">
-                  <span className="text-2xl sm:text-3xl font-mono font-bold text-white tabular-nums">
+                <div className="flex items-baseline gap-2.5 sm:gap-3 mt-1">
+                  <span className="text-xl sm:text-2xl lg:text-3xl font-mono font-bold text-white tabular-nums">
                     ${selectedTicker.price.toLocaleString('en-US', { minimumFractionDigits: 2 })}
                   </span>
-                  <span className={`text-sm font-mono font-semibold flex items-center ${selectedTicker.change24h >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>
-                    {selectedTicker.change24h >= 0 ? <TrendingUp className="w-4 h-4 mr-1" /> : <TrendingDown className="w-4 h-4 mr-1" />}
+                  <span className={`text-xs sm:text-sm font-mono font-semibold flex items-center ${selectedTicker.change24h >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>
+                    {selectedTicker.change24h >= 0 ? <TrendingUp className="w-3.5 h-3.5 mr-0.5" /> : <TrendingDown className="w-3.5 h-3.5 mr-0.5" />}
                     {selectedTicker.change24h >= 0 ? '+' : ''}{selectedTicker.change24h}%
                   </span>
                 </div>
               </div>
 
               {/* Timeframe selector (Button controls) */}
-              <div className="flex items-center gap-1 p-1 bg-slate-900 border border-slate-800 rounded-lg text-xs font-mono self-start sm:self-auto">
+              <div className="flex items-center gap-1 p-0.5 sm:p-1 bg-slate-900 border border-slate-800 rounded-lg text-xs font-mono self-start sm:self-auto">
                 {(['1m', '15m', '1h', '1D'] as const).map(tf => (
                   <button
                     key={tf}
                     onClick={() => { setTimeframe(tf); haptics.tap(); }}
-                    className={`px-2.5 py-1 rounded transition-colors ${timeframe === tf ? 'bg-slate-800 text-emerald-300 font-semibold' : 'text-slate-400 hover:text-white'}`}
+                    className={`px-2 py-0.5 sm:px-2.5 sm:py-1 rounded text-[11px] sm:text-xs transition-colors ${timeframe === tf ? 'bg-slate-800 text-emerald-300 font-semibold' : 'text-slate-400 hover:text-white'}`}
                   >
                     {tf}
                   </button>
@@ -198,10 +198,10 @@ export const TradingView: React.FC<TradingViewProps> = ({
             </div>
 
             {/* SVG Candlestick Rendering */}
-            <div className="relative w-full overflow-hidden bg-[#090d14] border border-slate-800/80 rounded-xl p-2">
+            <div className="relative w-full overflow-hidden bg-[#090d14] border border-slate-800/80 rounded-xl p-1.5 sm:p-2">
               <svg
                 viewBox={`0 0 ${chartWidth} ${chartHeight}`}
-                className="w-full h-64 sm:h-72"
+                className="w-full h-48 sm:h-64 sm:h-72"
                 preserveAspectRatio="none"
               >
                 {/* Horizontal price grid lines */}
@@ -343,10 +343,10 @@ export const TradingView: React.FC<TradingViewProps> = ({
 
         {/* Right Column: Instant Execution Terminal */}
         <div className="lg:col-span-4 space-y-4">
-          <div className="p-5 sm:p-6 bg-[#0c1018] border border-slate-800 rounded-2xl shadow-xl space-y-4">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-800">
-              <h3 className="font-semibold text-sm text-white">Execution Terminal</h3>
-              <span className="font-mono text-xs text-emerald-400">0% Commission</span>
+          <div className="p-3.5 sm:p-5 lg:p-6 bg-[#0c1018] border border-slate-800 rounded-2xl shadow-xl space-y-3 sm:space-y-4">
+            <div className="flex items-center justify-between pb-2.5 sm:pb-3 border-b border-slate-800">
+              <h3 className="font-semibold text-xs sm:text-sm text-white">Execution Terminal</h3>
+              <span className="font-mono text-[11px] sm:text-xs text-emerald-400">0% Commission</span>
             </div>
 
             {/* Buy / Sell side switcher */}

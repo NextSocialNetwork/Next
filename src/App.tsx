@@ -310,7 +310,7 @@ export default function App() {
 
       {/* Floating Push Volatility Toast Alert */}
       {activeToastAlert && (
-        <div className="fixed bottom-20 right-4 sm:right-6 z-50 max-w-sm w-full bg-[#0d121c] border border-amber-500/60 rounded-2xl p-4 shadow-2xl text-slate-100 animate-in slide-in-from-bottom-5 duration-300">
+        <div className="fixed bottom-16 sm:bottom-20 right-3 sm:right-6 z-50 max-w-[calc(100vw-24px)] sm:max-w-sm w-full bg-[#0d121c] border border-amber-500/60 rounded-2xl p-3 sm:p-4 shadow-2xl text-slate-100 animate-in slide-in-from-bottom-5 duration-300">
           <div className="flex items-start justify-between gap-2">
             <div className="flex items-center gap-2">
               <div className="p-1.5 bg-amber-500/20 rounded-lg text-amber-400">
@@ -351,7 +351,7 @@ export default function App() {
       )}
 
       {/* Main Viewport Container */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-2.5 sm:px-6 lg:px-8 py-3 sm:py-6">
         {activeTab === 'feed' && (
           <FeedView
             posts={posts}
@@ -397,14 +397,14 @@ export default function App() {
         )}
       </main>
 
-      {/* Floating AI Chat Trigger Pill (Docked on the opposite side: bottom-right) */}
-      <div className="fixed bottom-6 right-4 sm:right-6 z-40">
+      {/* Floating AI Chat Trigger Pill (Docked on bottom-right, compact on mobile) */}
+      <div className="fixed bottom-3 right-2.5 sm:bottom-6 sm:right-6 z-40">
         <button
           onClick={() => { setIsAiChatOpen(!isAiChatOpen); haptics.tap(); }}
-          className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-bold rounded-full shadow-xl shadow-emerald-950/50 transition-all hover:scale-105 cursor-pointer"
+          className="flex items-center gap-1.5 sm:gap-2 px-2.5 py-1.5 sm:px-4 sm:py-2.5 bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-bold rounded-full shadow-lg shadow-emerald-950/50 transition-all hover:scale-105 cursor-pointer text-[10px] sm:text-xs"
         >
-          <Bot className="w-4 h-4" />
-          <span className="text-xs font-semibold">{t.btn_ai_support}</span>
+          <Bot className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+          <span>{t.btn_ai_support}</span>
         </button>
       </div>
 
