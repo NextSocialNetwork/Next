@@ -54,6 +54,20 @@ export const ArticleDetailModal: React.FC<ArticleDetailModalProps> = ({
 
         {/* Scrollable Paper Content */}
         <div className="overflow-y-auto p-6 sm:p-8 space-y-6">
+          {/* Article Cover Photo */}
+          {article.coverImage && (
+            <div className="w-full h-52 sm:h-72 rounded-xl overflow-hidden bg-slate-950 border border-slate-800/80">
+              <img
+                src={article.coverImage}
+                alt={article.title}
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).src = '/images/crypto_network_mesh.jpg';
+                }}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          )}
+
           {/* Metadata Strip (Strict Zero-Pill Discipline) */}
           <div className="flex flex-wrap items-center gap-2 text-xs text-slate-400 font-mono">
             <span className="text-emerald-400">Article #{article.id}</span>

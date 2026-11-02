@@ -19,6 +19,12 @@ const port = parseInt(process.env.PORT || '3000', 10);
 
 app.use(express.json());
 
+// Explicitly serve static assets and generated photos
+app.use('/images', express.static(path.resolve(__dirname, 'public/images')));
+app.use('/public/images', express.static(path.resolve(__dirname, 'public/images')));
+app.use('/src/assets/images', express.static(path.resolve(__dirname, 'src/assets/images')));
+app.use(express.static(path.resolve(__dirname, 'public')));
+
 // Initialize Server-Side Google GenAI Client
 const apiKey = process.env.GEMINI_API_KEY;
 let aiClient: GoogleGenAI | null = null;

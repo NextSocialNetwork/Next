@@ -161,6 +161,23 @@ export const ArticleArchiveView: React.FC<ArticleArchiveViewProps> = ({
             key={article.id}
             className="p-3.5 sm:p-5 bg-[#0c1018] border border-slate-800/80 hover:border-emerald-500/50 rounded-2xl transition-all flex flex-col justify-between space-y-2.5 sm:space-y-3 shadow-md group"
           >
+            {/* Article Cover Photo */}
+            <div
+              onClick={() => onOpenArticle(article)}
+              className="w-full h-36 sm:h-44 rounded-xl overflow-hidden bg-slate-950 cursor-pointer relative"
+            >
+              <img
+                src={article.coverImage}
+                alt={article.title}
+                loading="lazy"
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).src = '/images/crypto_network_mesh.jpg';
+                }}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0c1018]/80 via-transparent to-transparent pointer-events-none" />
+            </div>
+
             <div className="space-y-2">
               {/* Unboxed Metadata Strip (Zero-Pill Discipline) */}
               <div className="flex items-center justify-between text-[11px] text-slate-400 font-mono">

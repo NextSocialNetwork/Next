@@ -33,6 +33,17 @@ export const CreatePostModal: React.FC<CreatePostModalProps> = ({
   // Blog specific fields
   const [blogTitle, setBlogTitle] = useState('');
   const [blogSummary, setBlogSummary] = useState('');
+  const [selectedCoverImage, setSelectedCoverImage] = useState('/images/crypto_network_mesh.jpg');
+
+  const availablePhotos = [
+    { label: 'Network Mesh', url: '/images/crypto_network_mesh.jpg' },
+    { label: 'Data Core', url: '/images/cyber_encryption_core.jpg' },
+    { label: 'Bitcoin Macro', url: '/images/bitcoin_macro_trading.jpg' },
+    { label: 'Relay Nodes', url: '/images/decentralized_mesh_nodes.jpg' },
+    { label: 'Security Enclave', url: '/images/biometric_security_key.jpg' },
+    { label: 'Sovereign Vault', url: '/images/digital_sovereignty_vault.jpg' },
+    { label: 'Trading Visual', url: '/images/market_trading_visual.jpg' }
+  ];
 
   if (!isOpen) return null;
 
@@ -73,10 +84,10 @@ export const CreatePostModal: React.FC<CreatePostModalProps> = ({
           blogPost: postType === 'blog' ? {
             title: blogTitle || 'Decentralized Research Note',
             readTime: '3 min read',
-            coverImage: '/src/assets/images/crypto_network_mesh_1793585630869.jpg',
+            coverImage: selectedCoverImage,
             summary: blogSummary || content.slice(0, 120),
             fullMarkdown: `## ${blogTitle}\n\n${content}`,
-            canonicalUrl: `https://nexus-zero.network/blog/${slug}`
+            canonicalUrl: `https://NextSocialNetwork.Com/blog/${slug}`
           } : undefined,
           metrics: {
             nodeRelays: 12,
@@ -157,6 +168,32 @@ export const CreatePostModal: React.FC<CreatePostModalProps> = ({
                   placeholder="Brief synopsis for Google search snippets and OpenGraph card previews..."
                   className="w-full px-3.5 py-2 bg-slate-900/90 border border-slate-700 rounded-xl text-xs text-slate-300 focus:outline-none focus:border-emerald-400"
                 />
+              </div>
+
+              <div>
+                <label className="block text-xs font-mono text-slate-400 mb-1.5">Select Article Cover Photo</label>
+                <div className="grid grid-cols-4 sm:grid-cols-7 gap-2">
+                  {availablePhotos.map((photo) => {
+                    const isSelected = selectedCoverImage === photo.url;
+                    return (
+                      <button
+                        key={photo.url}
+                        type="button"
+                        onClick={() => { setSelectedCoverImage(photo.url); haptics.tap(); }}
+                        className={`group relative rounded-lg overflow-hidden border-2 transition-all aspect-video ${
+                          isSelected ? 'border-emerald-400 ring-2 ring-emerald-500/30' : 'border-slate-800 hover:border-slate-600'
+                        }`}
+                        title={photo.label}
+                      >
+                        <img
+                          src={photo.url}
+                          alt={photo.label}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                        />
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
             </>
           )}

@@ -195,6 +195,9 @@ export const FeedView: React.FC<FeedViewProps> = ({
                           src={blog.coverImage}
                           alt={blog.title}
                           referrerPolicy="no-referrer"
+                          onError={(e) => {
+                            (e.currentTarget as HTMLImageElement).src = '/images/crypto_network_mesh.jpg';
+                          }}
                           className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500"
                         />
                       </div>

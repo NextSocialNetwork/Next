@@ -25,14 +25,14 @@ export const INITIAL_POSTS: Post[] = [
     blogPost: {
       title: 'The Zero-Knowledge Future: Beyond Identity Verifications and Centralized KYC',
       readTime: '6 min read',
-      coverImage: '/src/assets/images/crypto_network_mesh_1793585630869.jpg',
+      coverImage: '/images/crypto_network_mesh.jpg',
       summary: 'Why zero-knowledge proofs and asymmetric cryptography render corporate identity harvesting obsolete for decentralized social systems and financial autonomous rails.',
-      canonicalUrl: 'https://nexus-zero.network/blog/zero-knowledge-future-beyond-kyc',
+      canonicalUrl: 'https://NextSocialNetwork.Com/blog/zero-knowledge-future-beyond-kyc',
       fullMarkdown: `## The Fallacy of Centralized Identity Verification
 
 For two decades, web platforms enforced a false dichotomy: either users surrender government passports, phone numbers, and facial biometrics to corporate databases, or civil communication collapses under spam.
 
-**NEXUS ZERO demonstrates an alternative architecture:**
+**Next demonstrates an alternative architecture:**
 1. **Mathematical Proof of Personhood**: Zero-Knowledge Succinct Non-Interactive Arguments of Knowledge (zk-SNARKs) verify that an actor represents a unique cryptographic entity without disclosing private telemetry.
 2. **End-to-End Cryptographic Signatures**: Every public dispatch and blog post is signed with an elliptic curve key (Ed25519), providing cryptographic non-repudiation.
 3. **Decentralized Storage**: Data payloads are distributed across immutable content-addressed storage (IPFS / Arweave CIDs), meaning no single server can erase history.
@@ -64,14 +64,14 @@ When combined with multi-chain smart contracts and Bitcoin Lightning settlement,
     blogPost: {
       title: 'Autonomous Liquidity: Real-Time Bitcoin Portfolio Balancing in Volatile Regimes',
       readTime: '4 min read',
-      coverImage: '/src/assets/images/market_trading_visual_1793585632119.jpg',
+      coverImage: '/images/bitcoin_macro_trading.jpg',
       summary: 'How algorithmic volatility triggers and cross-asset smart rebalancing enable non-custodial traders to exploit rapid market regimes without human emotional bias.',
-      canonicalUrl: 'https://nexus-zero.network/blog/autonomous-liquidity-bitcoin-portfolio-balancing',
+      canonicalUrl: 'https://NextSocialNetwork.Com/blog/autonomous-liquidity-bitcoin-portfolio-balancing',
       fullMarkdown: `## Managing Volatility in 24/7 Global Markets
 
 Traditional portfolio management relies on quarterly rebalancing intervals dictated by broker banking hours. In decentralized markets, volatility events unfold in minutes.
 
-### The NEXUS Trend Analysis Architecture
+### The Next Trend Analysis Architecture
 Our local client-side analytics engine computes:
 - Exponential Moving Average differentials (EMA 20 vs EMA 50)
 - Real-time volatility expansion metrics
@@ -96,16 +96,16 @@ All order executions are authorized client-side with hardware-grade biometric au
     tipsReceivedUsd: 310.00,
     signature: 'sig:ed25519:4a9918237cbbe819203948571029384756ab',
     cid: 'bafyreib23847593847291039485729384759382710394857293847',
-    isEncrypted: true,
+    isEncrypted: false,
     category: 'Privacy Tech',
     tags: ['E2EE', 'Cybersecurity', 'DecentralizedRelay'],
     slug: 'client-side-aes-gcm-256-encryption-active',
     blogPost: {
       title: 'Client-Side Cryptography: Engineering End-to-End Encrypted Social Meshes',
       readTime: '8 min read',
-      coverImage: '/src/assets/images/digital_sovereignty_vault_1793585631235.jpg',
+      coverImage: '/images/digital_sovereignty_vault.jpg',
       summary: 'A deep architectural dissection into Web Crypto SubtleCrypto implementation for ephemeral Diffie-Hellman handshakes and tamper-evident decentralized feeds.',
-      canonicalUrl: 'https://nexus-zero.network/blog/client-side-cryptography-encrypted-social-meshes',
+      canonicalUrl: 'https://NextSocialNetwork.Com/blog/client-side-cryptography-encrypted-social-meshes',
       fullMarkdown: `## Zero Trust at the Edge
 
 Decentralization without cryptographic privacy is merely transparent panopticism. For a social network to be truly free, public data must be verifiable and private data must be mathematically impenetrable.
@@ -136,6 +136,16 @@ Decentralization without cryptographic privacy is merely transparent panopticism
     category: 'Econ Theory',
     tags: ['SelfCustody', 'OnChainAnalytics', 'Bitcoin'],
     slug: 'whale-transfer-detected-sovereign-accumulation',
+    blogPost: {
+      title: 'Biometric Enclaves: Securing Multi-Million Dollar Capital Without Trusted Custodians',
+      readTime: '5 min read',
+      coverImage: '/images/biometric_security_key.jpg',
+      summary: 'How biometric hardware authenticators and Secure Enclave chips eliminate seed phrase phishing and enable instantaneous cryptographic sign-off on sovereign transfers.',
+      canonicalUrl: 'https://NextSocialNetwork.Com/blog/biometric-enclaves-securing-capital',
+      fullMarkdown: `## The Modern Custody Frontier
+
+Securing digital sovereignty requires defense in depth. By coupling client-side Ed25519 key derivation with native WebAuthn biometric authentication, Next guarantees that only physical biometric confirmation can authorize asset movement or message dispatch.`
+    },
     metrics: {
       nodeRelays: 620,
       encryptionCipher: 'Ed25519 ECDSA'

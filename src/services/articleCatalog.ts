@@ -12,6 +12,7 @@ export interface SeoArticle {
   readTime: string;
   summary: string;
   markdownContent: string;
+  coverImage: string;
   authorHandle: string;
   authorKey: string;
   cid: string;
@@ -73,6 +74,16 @@ const SUMMARY_TEMPLATES = [
   'Examining the practical mechanics, cryptographic proofs, and decentralized storage protocols that power {topic}.',
   'Why modern sovereign creators rely on {topic} to guarantee zero identity verification, high scalability, and permanent data ownership.',
   'A rigorous yet engaging breakdown of throughput, security, and financial autonomy when deploying {topic} across federated relays.'
+];
+
+const THEME_IMAGES = [
+  '/images/crypto_network_mesh.jpg',
+  '/images/cyber_encryption_core.jpg',
+  '/images/bitcoin_macro_trading.jpg',
+  '/images/market_trading_visual.jpg',
+  '/images/decentralized_mesh_nodes.jpg',
+  '/images/digital_sovereignty_vault.jpg',
+  '/images/biometric_security_key.jpg'
 ];
 
 function seededRandom(seed: number) {
@@ -144,6 +155,8 @@ In an era of increasing platform lock-in and biometric data harvesting, understa
 - Peer-to-peer micro-grants directly in Bitcoin and Ethereum without payment processing intermediaries.
 - Biometric WebAuthn passkey confirmation on all administrative transactions.`;
 
+  const coverImage = THEME_IMAGES[(clampedId + topicIndex) % THEME_IMAGES.length];
+
   return {
     id: clampedId,
     title,
@@ -152,6 +165,7 @@ In an era of increasing platform lock-in and biometric data harvesting, understa
     readTime,
     summary,
     markdownContent,
+    coverImage,
     authorHandle: author.handle,
     authorKey: author.key,
     cid,
@@ -216,7 +230,7 @@ export function generateArticleJsonLd(article: SeoArticle) {
     '@type': 'BlogPosting',
     'headline': article.title,
     'description': article.summary,
-    'image': 'https://NextSocialNetwork.Com/assets/blog-og.jpg',
+    'image': `https://NextSocialNetwork.Com${article.coverImage}`,
     'author': {
       '@type': 'Person',
       'name': article.authorHandle,
