@@ -1,0 +1,6 @@
+{
+  "name": "NEXUS ZERO - Decentralized Encrypted Social & Autonomous Trading Network",
+  "description": "Futuristic, zero-KYC encrypted social protocol with SEO-indexed public feeds, end-to-end encrypted direct messaging, multi-chain asset management, real-time Bitcoin & equity trading, volatility alert push dispatch, and biometric transaction authentication.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
